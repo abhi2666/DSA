@@ -1,0 +1,12 @@
+// find smallest string after ordered operations
+
+#include <iostream>
+#include <vector>
+using namespace std;
+int main()
+{
+    string s;
+    getline(cin, s);
+    
+    return 0;
+}
