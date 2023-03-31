@@ -11,8 +11,9 @@ their unqiueness too
 class Solution {
 public:
     vector<vector<int>> fourSum(vector<int>& nums, int target) {
-        if(nums.size() <= 1) return ans;
         vector<vector<int>> ans;
+        if(nums.size() <= 1) return ans;
+        
         //sorting is mandatory
         sort(nums.begin(), nums.end());
         
@@ -29,16 +30,18 @@ public:
                 //two pointer approach
                 k = j + 1;
                 l = nums.size() - 1;
+                int sum = nums[i] + nums[j] + nums[k] + nums[l];
                 while(k < l)
-                {
-                    int sum = nums[i] + nums[j] + nums[k] + nums[l];
+                { 
                     if(sum == target)
                     {
                         ans.push_back({nums[i], nums[j], nums[k], nums[l]});
 
                         // now if there is any repeat element remove it..
-                        while(k < l && nums[k] == nums[k + 1]) k++;
-                        while(l > k && nums[l] == nums[l - 1]) l--;
+                        int temp1 = nums[k];
+                        int temp2 = nums[l];
+                        while(k < l && nums[k] == nums[temp1]) k++;
+                        while(l > k && nums[l] == nums[temp2]) l--;
                     }
                     else if(sum > target)
                     {
